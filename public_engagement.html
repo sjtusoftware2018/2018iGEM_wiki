@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+    <head>
+
+        <style type="text/css">
+            
+        
+            body {
+                font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, serif;
+                font-size: 16px;
+                line-height: 1.5em;
+                color: #6b3b25;
+                background: url(images/bg.png);
+                }
+            .wrapper {
+                width: 1000px;
+                margin: 30px auto 80px auto;
+                background: #dedad3;
+                -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+                -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+                -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+                }
+            /*-----------------------------------------------------------------------------------*/
+            /*	HEADER
+            /*-----------------------------------------------------------------------------------*/
+            header {
+                background: url(images/header.png);
+                min-height: 155px;
+                }
+            header #logo {
+                margin-top: 36px;
+                margin-bottom: 20px;
+                float: left;
+                }
+            header #logo:hover {
+                opacity: 0.8;
+                }
+            header #logo img {
+                display: block;
+                margin: 0 0 0 55px;
+                }
+            header #title {
+                margin-top: 45px;
+                margin-left: 260px;
+                font-size: 42px;
+                font-weight: 700;
+                text-shadow: 0px 1px 0 rgba(255, 255, 255, 0.5);
+                /* text-align: center; */
+            }
+            header #subtitle{
+                margin-top: 26px;
+                margin-left: 260px;
+                font-size: 26px;
+                font-weight: 500;
+                text-shadow: 0px 1px 0 rgba(255, 255, 255, 0.5);
+            }
+            /*---------------------------------------------------------------*/
+
+            /*-----------------------------------------------------------------------------------*/
+            /*	Nav
+            /*-----------------------------------------------------------------------------------*/
+            nav {
+                background: url(images/nav.png) no-repeat top center;
+                height: 65px;
+                width: 1038px;
+                margin-left: -20px;
+                font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+                font-size: 16px;
+                font-weight: 700;
+                }
+            nav #menu-icon {
+                display: none;
+                background: red;
+                width: 40px;
+                height: 40px;
+                }
+            nav #nav {
+                display: block;
+                margin-left: 35px;
+                /* substract 15 from the link padding */
+
+                }
+            nav #nav > li {
+                display: block;
+                float: left;
+                /* Subnavigation ----------------------------------------------------*/
+                }
+            nav #nav > li:hover a,
+            nav #nav > li.current-menu-item a,
+            nav #nav > li.current_page_item a {
+                background: #62493d;
+                text-shadow: 0px 2px 0px #444;
+                }
+                nav #nav > li > a {
+                display: block;
+                line-height: 65px;
+                padding-left: 15px;
+                padding-right: 15px;
+                text-decoration: none;
+                color: #dedad3;
+                text-shadow: 0px 2px 0px #c68301;
+                }
+            nav #nav > li.important a {
+                color: #ffe09f;
+            }
+            nav #nav > li ul {
+                margin-top: 25px;
+                background: #62493d;
+            }
+            nav #nav > li ul li {
+                border-bottom: 1px solid #806d63;
+            }
+            nav #nav > li ul li:last-child {
+                border-bottom: none;
+            }
+            nav #nav > li ul a {
+                display: block;
+                color: #dedad3;
+                text-decoration: none;
+                line-height: 1.5em;
+                padding: 15px;
+            }
+            nav #nav > li ul a:hover {
+                color: #e09402;
+            }
+            /*-----------------------------------------------------------------------------------*/
+
+            /*** ESSENTIAL STYLES ***/
+
+            .sf-menu, .sf-menu * {
+                margin:			0;
+                padding:		0;
+                list-style:		none;
+            }
+          
+            .sf-menu ul {
+                position:		absolute;
+                top:			-999em;
+                width:			10em; /* left offset of submenus need to match (see below) */
+
+            }
+            .sf-menu ul li {
+                width:			100%;
+            }
+            .sf-menu li:hover {
+                visibility:		inherit; /* fixes IE7 'sticky bug' */
+            }
+            .sf-menu li {
+                float:			left;
+                position:		relative;
+            }
+            .sf-menu a {
+                display:		block;
+                position:		relative;
+            }
+            .sf-menu li:hover ul,
+            .sf-menu li.sfHover ul {
+                left:			0;
+                top:			2.5em; /* match top ul list item height */
+                z-index:		99;
+            }
+            ul.sf-menu li:hover li ul,
+            ul.sf-menu li.sfHover li ul {
+                top:			-999em;
+            }
+            ul.sf-menu li li:hover ul,
+            ul.sf-menu li li.sfHover ul {
+                left:			10em; /* match ul width */
+                top:			0;
+            }
+            ul.sf-menu li li:hover li ul,
+            ul.sf-menu li li.sfHover li ul {
+                top:			-999em;
+            }
+            ul.sf-menu li li li:hover ul,
+            ul.sf-menu li li li.sfHover ul {
+                left:			10em; /* match ul width */
+                top:			0;
+            }
+            /*	MAIN
+            /*-----------------------------------------------------------------------------------*/
+            #main {
+                min-height: 500px;
+                position: relative;
+                border-top: 5px solid #c6c2bc;
+                }
+            #main .tagline {
+                font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+                line-height: 1.3em;
+                font-size: 36px;
+                font-weight: 700;
+                text-shadow: 0px 1px 0 rgba(255, 255, 255, 0.5);
+                text-align: center;
+                margin-bottom: 40px;
+                margin-right: 30px;
+                margin-left: 30px;
+                }
+
+            /* cf: contain floats*/
+
+            .cf:before,
+            .cf:after {
+                content: " "; /* 1 */
+                display: table; /* 2 */
+            }
+
+            .cf:after {
+                clear: both;
+            }
+
+            /*
+            * For IE 6/7 only
+            * Include this rule to trigger hasLayout and contain floats.
+            */
+
+            .cf {
+                *zoom: 1;
+            }
+
+            /* ==========================================================================*/
+
+            .slider-wrapper{
+                margin: 30px auto 0px auto;
+                width: 940px;
+            }
+            
+            /* The Nivo Slider styles */
+            .nivoSlider {
+                position:relative;
+                width:100%;
+                height:auto;
+                overflow: hidden;
+                
+                border: 5px solid #fff;
+                margin-left: -5px; /* Adjust 5px because of the border width 5px*/
+                
+                -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.2); 
+                -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+                -o-box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+                box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+                
+            }
+            .nivoSlider img {
+                position:absolute;
+                top:0px;
+                left:0px;
+                max-width: none;
+            }
+
+            .nivo-main-image {
+                display: block !important;
+                position: relative !important; 
+                width: 100% !important;
+            }
+
+            /* If an image is wrapped in a link */
+            .nivoSlider a.nivo-imageLink {
+                position:absolute;
+                top:0px;
+                left:0px;
+                width:100%;
+                height:100%;
+                border:0;
+                padding:0;
+                margin:0;
+                z-index:6;
+                display:none;
+            }
+            /* The slices and boxes in the Slider */
+            .nivo-slice {
+                display:block;
+                position:absolute;
+                z-index:5;
+                height:100%;
+                top:0;
+            }
+            .nivo-box {
+                display:block;
+                position:absolute;
+                z-index:5;
+                overflow:hidden;
+            }
+            .nivo-box img { display:block; }
+
+            /* Caption styles */
+            .nivo-caption {
+                position:absolute;
+                left:0px;
+                bottom:0px;
+                background:#000;
+                color:#fff;
+                width:100%;
+                z-index:8;
+                padding: 5px 10px;
+                opacity: 0.8;
+                overflow: hidden;
+                display: none;
+                -moz-opacity: 0.8;
+                filter:alpha(opacity=8);
+                -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+                -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+                box-sizing: border-box;         /* Opera/IE 8+ */
+            }
+            .nivo-caption p {
+                padding:5px;
+                margin:0;
+            }
+            .nivo-caption a {
+                display:inline !important;
+            }
+            .nivo-html-caption {
+                display:none;
+            }
+            /* Direction nav styles (e.g. Next & Prev) */
+            .nivo-directionNav a {
+                position:absolute;
+                top:45%;
+                z-index:9;
+                cursor:pointer;
+            }
+            .nivo-prevNav {
+                left:0px;
+            }
+            .nivo-nextNav {
+                right:0px;
+            }
+            /* Control nav styles (e.g. 1,2,3...) */
+            .nivo-controlNav {
+                text-align:left;
+                padding: 10px 0 15px 0px;
+            }
+            .nivo-controlNav a {
+                display: inline-block;
+                cursor:pointer;
+                background: #62493d;
+                width: 10px;
+                height: 10px;
+                text-indent: -9000px;
+                margin-right: 5px;
+                
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+                
+                border: 2px solid #f1f1f1;
+                border-top: 2px solid #ffffff;
+                
+                -webkit-box-shadow: 0px 0px 2px rgba(0,0,0,.3); 
+                -moz-box-shadow: 0px 0px 2px rgba(0,0,0,.3); 
+                -o-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
+                box-shadow: 0px 0px 2px rgba(0,0,0,.2);
+            }
+            .nivo-controlNav a.active {
+                background: #e09402;
+            }
+
+            /*	Widgets block
+            /*-----------------------------------------------------------------------------------*/
+            .widget-cols {
+                position: relative;
+                display: block;
+                background: #62493d url(images/widgets.png) repeat;
+                font-size: 16px;
+                color: #e7d7ba;
+                text-shadow: 0px -1px 0 rgba(0, 0, 0, 0.5);
+                text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+                border-top: 4px solid #e09402;
+                padding-left: 10px;
+                padding-top: 10px;
+                margin: auto;
+                height:220px;
+            }
+            .widget-cols h1,
+            .widget-cols h2,
+            .widget-cols h3,
+            .widget-cols h4,
+            .widget-cols h5,
+            .widget-cols h6 {
+                font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial;
+                color: #e09402;
+                margin-bottom: 20px;
+                font-weight: 700;
+            }
+            .widget-cols a {
+                color: #e09402;
+                border-bottom: 1px dotted #e09402;
+                text-decoration: none;
+            }
+            .widget-cols a:hover {
+                color: #fff;
+                border-bottom: 1px dotted #fff;
+            }
+            .widget-cols > li {
+                width: 220px;
+                float: left;
+                margin-left: 20px;
+                margin-bottom: 40px;
+            }
+            .widget-cols .scroll {
+                content: '';
+                position: absolute;
+                top: -40px;
+                left: 50%;
+                margin-left: -23px;
+                background: url(images/bottom-arrow.png) no-repeat;
+                height: 41px;
+                width: 46px;
+            }
+            .widget-cols .scroll:hover {
+                background-position: 0px -41px;
+            }
+            .multiplebgs .widget-cols {
+                background-image: url(images/widgets-shadow.png), url(images/widgets.png);
+                background-repeat: repeat-x, repeat;
+                background-position: left bottom, left bottom;
+            }
+
+            .footer-divider {
+                background: #5a453b;
+                border-top: 1px solid #644d42;
+                border-bottom: 1px solid #523f35;
+                height: 8px;
+                width: 100%;
+            }
+
+            /*	FOOTER
+            /*-----------------------------------------------------------------------------------*/
+            footer {
+                position: relative;
+                text-align: center;
+                padding: 30px 30px 30px 30px;
+                font-size: 18px;
+                color: #e09402;
+                background: #62493d url(images/footer.png) repeat-x center top;
+                text-shadow: 0px -1px 0 rgba(0, 0, 0, 0.5);
+            }
+            footer:after {
+                content: '';
+                position: absolute;
+                bottom: -46px;
+                height: 46px;
+                width: 100%;
+                width: 940px\9;
+                background: url(images/main-shadow.png) no-repeat top center;
+            }
+            footer a {
+                text-decoration: none;
+                color: #e09402;
+                border-bottom: 1px dotted #e09402;
+            }
+            footer a:hover {
+                color: #fff;
+                border-bottom: 1px dotted #fff;
+            }
+
+            /*================================================================================*/
+            /*public engagement*/
+            #posts-list {
+                position: relative;
+                width: 720px;
+                margin-top: 30px;
+                margin-left: 30px;
+                margin-bottom: 40px;
+                float: left;
+            }
+
+            #posts-list article {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #6b3b25;
+            }
+            #posts-list article:last-child {
+            border: none;
+            }
+            #posts-list article .feature-image {
+            position: relative;
+            line-height: 0px;
+            border: 5px solid #fff;
+            -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            }
+            #posts-list article .feature-image:after {
+            position: absolute;
+            bottom: -22px;
+            left: 0px;
+            content: '';
+            background: url(images/stacked-paper.png) no-repeat right bottom;
+            width: 100%;
+            height: 17px;
+            }
+            #posts-list article .feature-image img {
+            max-width: 100%;
+            }
+            #posts-list article .meta {
+            color: #c78301;
+            text-shadow: 0px 1px 0 rgba(255, 255, 255, 0.5);
+            font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, serif;
+            font-size: 18px;
+            margin-bottom: 14px;
+            }
+            #posts-list article .meta a {
+            color: #c78301;
+            text-decoration: none;
+            }
+            #posts-list article .entry-title {
+            color: #6b3b25;
+            text-shadow: 0px 1px 0 rgba(255, 255, 255, 0.5);
+            margin-bottom: 14px;
+            }
+            #posts-list article .entry-title .post-heading {
+            color: #6b3b25;
+            text-decoration: none;
+            font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            }
+            #posts-list article .subtitle{
+                color: #6b3b25;
+                text-decoration: none;
+                font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 20px;
+                font-weight: 600;
+            }
+            #posts-list article .excerpt {
+            text-shadow: 0px 1px 0 rgba(255, 255, 255, 0.5);
+            margin-bottom: 21px;
+            }
+            #posts-list.single-post article {
+            border: none;
+            }
+            /*-----------------------------------------------------------------------------------*/
+            /*	PAGE NAVIGATION
+            /*-----------------------------------------------------------------------------------*/
+            #posts-list .page-navigation {
+            position: relative;
+            left: 50%;
+            display: block;
+            margin-bottom: 100px;
+            float: left;
+            }
+            #posts-list .page-navigation div {
+            position: relative;
+            right: 50%;
+            }
+            #posts-list .page-navigation div span {
+            margin-bottom: 15px;
+            display: inline-block;
+            }
+            #posts-list .page-navigation div:hover a {
+            color: #6b3b25;
+            }
+            #posts-list .page-navigation a {
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            color: #fff;
+            display: block;
+            font-size: 12px;
+            line-height: 41px;
+            width: 112px;
+            text-decoration: none;
+            text-align: center;
+            }
+            #posts-list .page-navigation .nav-next {
+            float: left;
+            margin-right: 20px;
+            background: url(images/pagination.png) no-repeat 0px 0px;
+            }
+            #posts-list .page-navigation .nav-previous {
+            float: right;
+            background: url(images/pagination.png) no-repeat right -59px;
+            }
+            /*-----------------------------------------------------------------------------------*/
+
+            /*-----------------------------------------------------------------------------------*/
+            /*	SIDEBAR
+            /*-----------------------------------------------------------------------------------*/
+            #sidebar {
+            position: relative;
+            width: 220px;
+            margin-right: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            float: right;
+            }
+            #sidebar .block {
+            font-size: 14px;
+            margin-bottom: 30px;
+            font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-shadow: 0px 1px 0 rgba(255, 255, 255, 0.5);
+            }
+            #sidebar .block a {
+            text-decoration: none;
+            color: #c78301;
+            }
+            #sidebar .block a:hover {
+            border-bottom: 1px dotted #c78301;
+            }
+            #sidebar .block .heading {
+            font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            line-height: 48px;
+            font-size: 18px;
+            border-top: 4px solid #6b3b25;
+            border-bottom: 1px solid #6b3b25;
+            text-shadow: 0px 1px 0 rgba(255, 255, 255, 0.5);
+            margin-top: 0px;
+            }
+            #sidebar .ads img {
+            margin-bottom: 10px;
+            margin-right: 0px;
+            }
+            /*-----------------------------------------------------------------------------------*/
+
+            ul{
+                list-style: none;;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <!-- HEADER -->
+           <header class="cf">
+               <div id="logo"><a href="index.html"> <img src="images/teamlogo.png"  height="90"/></a></div>
+               <div id="title">SJTU-software</div>
+               <div id="subtitle">Metlab: a metabolic network alignment tool</div>
+            </header>
+
+            <!-- NAV -->
+            <nav class="cf">
+                <ul id="nav" class="sf-menu">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="team.html">TEAM</a>
+                        <ul>
+                            <li><a href="team.html">TEAM MEMBER</a></li>
+                            <li><a href="collaborations.html">COLLABRATIONS</a></li>>
+                        </ul>
+                    </li>
+                    <li><a href="">PROJECT</a>
+                        <ul>
+                            <li><a href="">DESCRIPTION</a></li>
+                            <li><a href="">DESIGN</a></li>
+                            <li><a href="">NOTEBOOK</a></li>
+                            <li><a href="">CONTRIBUTION</a></li>
+                            <li><a href="">DEMONSTRATE</a></li>
+                            <li><a href="">IMPROVE</a></li>
+                            <li><a href="">ATTRIBUTIONS</a></li>
+                        </ul>
+                    </li>
+                    <li  class="current-menu-item"><a href="">HUMAN PRACTICE</a>
+                        <ul>
+                            <li><a href="">SILVER HP</a></li>
+                            <li><a href="">INTERCRATED AND GOLD</a></li>
+                            <li><a href="public_engagement.html">PUBLIC ENGAGEMENT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- ENDS NAV-->
+
+            	<!-- MAIN -->
+			<div id="main" class="cf">
+				
+                    <!-- posts list -->
+                    <div id="posts-list" class="cf"> 
+                        
+                        <article class="cf">
+                            
+                            <div class="entry-title">
+                                <div class="meta">April 7 2018</div>
+                                <div class="post-heading" >2018 SJTUer’s Festival——Popularization of Biology</div>
+                            </div>
+                            <div class="excerpt">
+                                SJTUer’s festival is an annual Youth creative carnival in Shanghai Jiao Tong University. In 2018 SJTUer’s festival, we set up a booth in section of Science and technology to provide public with scientific biology knowledge and promoting their scientific literacy.
+                            </div>	
+                            <div class="subtitle">Microscopic observation</div>
+                            <div class="excerpt">
+                                We demonstrated the public how to use a microscope and stereoscope. From Moss slice，blood cell to petal, ant…… Everyone have enjoyed the wonder of microworld. Especially, the activity attracted many children and stimulated them the exploration of the biological world!
+                            </div>
+                            <div class="feature-image">
+                                <img src="images/HP/microscope1.jpg" alt="Thumbnail" />
+                            </div>
+                            <div class="feature-image">
+                               <img src="images/HP/microscope2.jpg" alt="Thumbnail" />
+                            </div>
+                            <div class="subtitle">DNA DIY workshop</div>
+                            <div class="excerpt">
+                                We also provided public a chance to build DNA models with their own hands. In this DIY process, everyone not only feel the sense of accomplishment of building a model by hand, but also increased the knowledge. They were impressed with the structure of double stranded DNA and understood the mysteries of molecular biology.
+                            </div>
+                            <div class="feature-image">
+                                <img src="images/HP/DNA1.JPG" alt="Thumbnail" />
+                            </div>
+                            <div class="feature-image">
+                               <img src="images/HP/DNA2.jpg" alt="Thumbnail" />
+                            </div>
+                            <div class="subtitle">Introduction to synthetic biology</div>
+                            <div class="excerpt">
+                                We gave a brief introduction of synthetic biology to public, then we encouraged them write down their hope for the future development of synthetic biology. Someone wrote” I hope synthetic biology can help cure for cancer in the future.” Another wrote” I hope synthetic biology can play a role in promoting plant growth and raising the yield of crops.’’…… We were greatly inspired by these public opinions.
+                            </div>
+                            <div class="feature-image">
+                                <img src="images/HP/Introduction1.jpg" alt="Thumbnail" />
+                            </div>
+                            <!-- <div class="feature-image">
+                               <img src="images/HP/DNA2.jpg" alt="Thumbnail" />
+                            </div>		 -->
+                           
+                        </article>
+                        
+                        <article class="cf">
+                            <div class="feature-image">
+                                <a href="single.html" ><img src="img/dummies/620x450-b.jpg" alt="Thumbnail" /></a>
+                            </div>
+                            <div class="entry-title">
+                                <div class="meta">Jan 23 by <a href="#" class="author">Ansimuz</a></div>
+                                <a href="single.html" class="post-heading" >LOREM IPSUM DOLOR</a>
+                            </div>
+                            <div class="excerpt">
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. 
+                            </div>	
+                           
+                        </article>
+                        
+                        <article class="cf">
+                            <div class="feature-image">
+                                <a href="single.html" ><img src="img/dummies/620x450-c.jpg" alt="Thumbnail" /></a>
+                            </div>
+                            <div class="entry-title">
+                                <div class="meta">Jan 23 by <a href="#" class="author">Ansimuz</a></div>
+                                <a href="single.html" class="post-heading" >LOREM IPSUM DOLOR</a>
+                            </div>
+                            <div class="excerpt">
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. 
+                            </div>	
+                           
+                        </article>
+                        
+                        <article class="cf">
+                            <div class="feature-image">
+                                <a href="single.html" ><img src="img/dummies/620x450-d.jpg" alt="Thumbnail" /></a>
+                            </div>
+                            <div class="entry-title">
+                                <div class="meta">Jan 23 by <a href="#" class="author">Ansimuz</a></div>
+                                <a href="single.html" class="post-heading" >LOREM IPSUM DOLOR</a>
+                            </div>
+                            <div class="excerpt">
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. 
+                            </div>	
+                            
+                        </article>
+                        
+                        <!-- page-navigation -->
+                        <div class="page-navigation cf">
+                            <div class="nav-next"><a href="#">OLDER</a></div>
+                            <div class="nav-previous"><a href="#">NEWER</a></div>
+                        </div>
+                        <!--ENDS page-navigation -->
+                    
+                    </div>
+                    <!-- ENDS post list -->
+                    
+                    <!-- SIDEBAR -->
+                    <aside id="sidebar">
+                    
+                        <ul>
+                            <li class="block">
+                                <h4 class="heading">ARCHIVES</h4>
+                                <ul>
+                                    <li class="cat-item"><a href="#" >September 2012</a> (1)</li>
+                                    <li class="cat-item"><a href="#" >March 2012</a> (2)</li>
+                                    <li class="cat-item"><a href="#" >February 2012</a> (6)</li>
+                                    <li class="cat-item"><a href="#" >January 2012</a> (12)</li>
+                                </ul>
+                            </li>
+                            
+                            <li class="block">
+                                <h4 class="heading">POPULAR POSTS</h4>
+                                
+                                
+                                <div class="small-posts-list ">
+                                    
+                                    <div class="post cf">
+                                        <a href="#" class="thumb"><img src="img/dummies/54x54-a.jpg" alt="Post"></a>
+                                        <div class="post-head">
+                                            <a href="#">Pellentesque habitant morbi senectus </a><span class="meta"> Mar 12 <a href="#" >By ansimuz</a></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="post cf">
+                                        <a href="#" class="thumb"><img src="img/dummies/54x54-b.jpg" alt="Post"></a>
+                                        <div class="post-head">
+                                            <a href="#">Pellentesque habitant morbi senectus </a><span class="meta"> Mar 12 <a href="#" >By ansimuz</a></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="post cf">
+                                        <a href="#" class="thumb"><img src="img/dummies/54x54-c.jpg" alt="Post"></a>
+                                        <div class="post-head">
+                                            <a href="#">Pellentesque habitant morbi senectus </a><span class="meta"> Mar 12 <a href="#" >By ansimuz</a></span>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                </div>
+                                
+                                
+                            
+                            </li>
+                            
+                            
+                            <li class="block">
+                                <h4 class="heading">SPONSORS</h4>
+                            
+                            <div class="ads cf">
+                                <a href="#"><img src="img/dummies/banner-tf.gif" alt="Thumbnail"></a>
+                                    <a href="#" class="last" ><img src="img/dummies/banner-mt.jpeg" alt="Thumbnail"></a>
+                                    <a href="#/list/"><img src="img/dummies/banner-tp.jpeg" alt="Thumbnail"></a>
+                                    <a href="#" class="last"><img src="img/dummies/banner-tf.gif" alt="Thumbnail"></a>
+                            </div>
+                            </li>
+                        </ul>
+                    </aside>
+                    <!-- ENDS SIDEBAR -->
+                    
+                </div>
+                <!-- ENDS MAIN -->
+			
+			
+			<!-- WIDGETS -->
+			<ul  class="widget-cols cf">
+				<li class="first-col">
+					
+					<div class="widget-block">
+						<h4>Address</h4>
+						<p>NO. 800 DONGCHUAN ROAD, MINHANG DISTRICT, SHANGHAI, CHINA
+                             <!-- <a href="#/blog/license/" >link</a>  -->
+                        </p>
+		     		</div>
+				</li>
+				
+				<li class="second-col">
+					
+					<div class="widget-block">
+						<h4>Contact Us</h4>
+                       
+		     		</div>
+					
+				</li>
+				
+				<li class="third-col">
+					
+					<div class="widget-block">
+						<h4>DUMMY TEXT</h4>
+						<p></p>
+		     		</div>
+		     		
+				</li>
+				
+				<li class="fourth-col">
+					
+					<div class="widget-block">
+						<h4>CATEGORIES</h4>
+						<ul>
+							<li class="cat-item"><a href="#" >Design</a></li>
+							<li class="cat-item"><a href="#" >Photo</a></li>
+							<li class="cat-item"><a href="#" >Art</a></li>
+							<li class="cat-item"><a href="#" >Game</a></li>
+							<li class="cat-item"><a href="#" >Film</a></li>
+							<li class="cat-item"><a href="#" >TV</a></li>
+						</ul>
+					</div>
+		     		
+				</li>
+				<li class="scroll"></li>
+			</ul>
+			<!-- ENDS WIDGETS -->
+            <!-- FOOTER -->
+                <div class="footer-divider"></div>
+                <footer class="cf">
+                        SJTU-software
+                    <!-- <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>  -->
+                </footer>
+			<!-- ENDS FOOTER -->
+
+         </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script>
+            /*-----------------------------------------------------------------------------------*/
+            /*	Scroll to top
+            /*-----------------------------------------------------------------------------------*/         
+            $('.widget-cols .scroll').click(function(){
+                $("html, body").animate({ scrollTop: 0 }, 600);
+                return false;
+            });
+            /*-----------------------------------------------------------------------------------*/
+        </script>
+       
+    </body>
