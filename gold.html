@@ -454,7 +454,15 @@
             }
 
             /*================================================================================*/
-            /*public engagement*/
+            /*gold-HP*/
+            .headline{
+                color: #6b3b25;
+                text-decoration: none;
+                font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 30px;
+                font-weight: 900;
+                margin: 20px;
+            }
             #posts-list {
                 position: relative;
                 width: 720px;
@@ -515,7 +523,7 @@
             color: #6b3b25;
             text-decoration: none;
             font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 24px;
+            font-size: 32px;
             font-weight: 700;
             }
             #posts-list article .subtitle{
@@ -616,16 +624,62 @@
             margin-right: 0px;
             }
             /*-----------------------------------------------------------------------------------*/
-            .headline{
-                color: #6b3b25;
-                text-decoration: none;
-                font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-                font-size: 30px;
-                font-weight: 900;
-                margin: 20px;
-            }
+
             ul{
                 list-style: none;;
+            }
+
+            /*---------------------------------------------------------------------------------*/
+            /*expert interview*/
+            #main .photo{
+                border: 5px solid #fff;
+                -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+                -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+                -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+                line-height: 0em;
+                width: 300px;
+                float: left;
+                margin-top: 15px;
+                margin-left: 10px;
+                margin-bottom: 15px;
+            }
+            #main .photo img{
+                width:100%
+            }
+            .member_info {
+                margin-top: 20px;
+                width: 335px;
+                float: right;
+                margin-right: 20px;
+                text-shadow: 0px 1px 0 rgba(255, 255, 255, 0.5);
+            }
+            .expert_name {
+                font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 32px;
+                font-weight: 700;
+                border-top: 4px solid #6b3b25;
+                border-bottom: 1px solid #6b3b25;
+                line-height: 1.3em;
+                padding: 7px 0px;
+                margin-bottom: 20px;
+            }
+            .member_info blockquote {
+                margin: 0px 0px 0px 0px;
+                padding: 0px;
+                font-size: 18px;
+                line-height: 1.5em;
+            }
+
+             #FeiTao{
+                height:350px;
+            }
+            #FeiTao .member_info{
+                margin-top: 50px;
+            }
+
+            #DanielFigeys{
+                height:370px;
             }
         </style>
     </head>
@@ -674,50 +728,54 @@
             	<!-- MAIN -->
 			<div id="main" class="cf">
 				<div class="headline">
-                    HUMAN PRACTICE —— PUBLIC ENGAGEMENT        
+                    HUMAN PRACTICE —— INTERCRATED AND GOLD        
                 </div>
                     <!-- posts list -->
                     <div id="posts-list" class="cf"> 
                         
                         <article class="cf">
-                            
                             <div class="entry-title">
-                                <div class="meta">April 7 2018</div>
-                                <div class="post-heading" >2018 SJTUer’s Festival——Popularization of Biology</div>
+                                <!-- <div class="meta">April 7 2018</div> -->
+                                <div class="post-heading" id="ExpertInterview">Expert Interview</div>
                             </div>
                             <div class="excerpt">
-                                SJTUer’s festival is an annual Youth creative carnival in Shanghai Jiao Tong University. In 2018 SJTUer’s festival, we set up a booth in section of Science and technology to provide public with scientific biology knowledge and promoting their scientific literacy.
+                                We discussed with different disciplines and fields scholars, their views inspired us a lot. Interviewing experts greatly advanced our project.
                             </div>	
-                            <div class="subtitle" id="Microscopic">Microscopic observation</div>
+                            <div class="expert_name" id="FT">Prof. Fei Tao</div>
+                            <div class="subtitle">School of Life Sciences & Biotechnology</div>
+                            <div class="subtitle">Shanghai Jiao Tong University</div>
+
+                            <div id="FeiTao">
+                                <div class="photo">
+                                        <img src="images/HP/FeiTao.jpg" style="display: inline;">
+                                </div>
+                                <div class="member_info">
+                                    <blockquote>
+                                        Dr. Tao is now an associate professor of SJTU. He has been engaged in the research of microbial synthetic biology since he got the doctoral degree. He mainly focuses on developing efficient cell factories and advanced biocatalytic technology based on the concept of synthetic biology.
+                                    </blockquote>
+                                </div>
+                            </div>
                             <div class="excerpt">
-                                We demonstrated the public how to use a microscope and stereoscope. From Moss slice，blood cell to petal, ant…… Everyone have enjoyed the wonder of microworld. Especially, the activity attracted many children and stimulated them the exploration of the biological world!
+                                Our interview concentrated on the topic “Application of metabolic network alignment tool in the laboratory”. Dr. Tao told us design of metabolic networks in synthetic biology focus on these aspects: 1.Yield; 2. Efficiency(in A -> B, concentration of B/A); 3. Period. Then we briefly introduced the idea of our software (a metabolic network alignment tool). Dr. Tao was greatly interest in the tool. He also analyzed a number of factors that lead to the difficulty of metabolic network alignment. How to evaluate similarity of two metabolic networks? How to grade the result of alignment? How to evaluate similarity of different compound…… His opinion made us have a deeper understanding of how make our software more practical and functional in the laboratory.
                             </div>
-                            <div class="feature-image">
-                                <img src="images/HP/microscope1.jpg" alt="Thumbnail" />
+
+                            <div class="expert_name" id="DF">Prof. Daniel Figeys</div>
+                            <div class="subtitle">Department of Biochemistry, Microbiology and Immunology</div>
+                            <div class="subtitle">University of	Ottawa</div>
+
+                            <div id="DanielFigeys">
+                                <div class="photo">
+                                        <img src="images/HP/DanielFigeys.jpg" style="display: inline;">
+                                </div>
+                                <div class="member_info">
+                                    <blockquote>
+                                        Daniel Figeys is a Professor and the Chair of the Department of Biochemistry, Microbiology and Immunology (BMI) and cross-appointed in the Department of Chemistry and Biomolecular Sciences at the University of Ottawa.  He is also a Canada Research Chair in Proteomics and Systems Biology.  His expertise is in the development of proteomics and systems biology and more recently in metaproteomics for microbial community analysis.
+                                    </blockquote>
+                                </div>
                             </div>
-                            <div class="feature-image">
-                               <img src="images/HP/microscope2.jpg" alt="Thumbnail" />
-                            </div>
-                            <div class="subtitle" id="DNA">DNA DIY workshop</div>
                             <div class="excerpt">
-                                We also provided public a chance to build DNA models with their own hands. In this DIY process, everyone not only feel the sense of accomplishment of building a model by hand, but also increased the knowledge. They were impressed with the structure of double stranded DNA and understood the mysteries of molecular biology.
+                                In Prof. Daniel Figeys’s Lab, they have developed a advanced bioinformatics software “iMetaLab”. Their project is originally designed for human/mouse gut metaproteomics protein identification and quantification, rooted from the MetaProIQ workflow. Upon the rising request, they wrap up the workflow into a desktop standalone version, with taxon analysis module built in. In the meantime, they have been working on some meta-function annotation and enrichment analysis, as well as some data visualization modules. Then they realize that it would be good to wrap up all related functions and share them to the community. They aim to make iMetaLab a free and one-stop toolset for gut metaproteomics, with increasing amount of tools under development. This interview inspired us how to make our software “Metlab: a metabolic network alignment tool” more user-friendly and complete. The process of their software development enlightened us to make “Metlab” a functional toolset with many tools related metabolic network.
                             </div>
-                            <div class="feature-image">
-                                <img src="images/HP/DNA1.JPG" alt="Thumbnail" />
-                            </div>
-                            <div class="feature-image">
-                               <img src="images/HP/DNA2.jpg" alt="Thumbnail" />
-                            </div>
-                            <div class="subtitle" id="synthetic">Introduction to synthetic biology</div>
-                            <div class="excerpt">
-                                We gave a brief introduction of synthetic biology to public, then we encouraged them write down their hope for the future development of synthetic biology. Someone wrote” I hope synthetic biology can help cure for cancer in the future.” Another wrote” I hope synthetic biology can play a role in promoting plant growth and raising the yield of crops.’’…… We were greatly inspired by these public opinions.
-                            </div>
-                            <div class="feature-image">
-                                <img src="images/HP/Introduction1.jpg" alt="Thumbnail" />
-                            </div>
-                            <!-- <div class="feature-image">
-                               <img src="images/HP/DNA2.jpg" alt="Thumbnail" />
-                            </div>		 -->
                            
                         </article>
                         
@@ -778,11 +836,12 @@
                     
                         <ul>
                             <li class="block">
-                                <h4 class="heading">Popularization</h4>
+                                <h4 class="heading"><a href="#ExpertInterview" ></a>Expert Interview</h4>
                                 <ul>
-                                    <li class="cat-item"><a href="#Microscopic" >Microscopic observation</a></li>
-                                    <li class="cat-item"><a href="#DNA" >DNA DIY workshop</a></li>
-                                    <li class="cat-item"><a href="#synthetic" >Introduction to synthetic biology</a></li>
+                                    <li class="cat-item"><a href="#FT" >Prof. Fei Tao</a></li>
+                                    <li class="cat-item"><a href="#DF" >Prof. Daniel Figeys</a></li>
+                                    <li class="cat-item"><a href="#" >February 2012</a></li>
+                                    <li class="cat-item"><a href="#" >January 2012</a></li>
                                 </ul>
                             </li>
                             
